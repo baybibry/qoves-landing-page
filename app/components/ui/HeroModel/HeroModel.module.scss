@@ -1,0 +1,56 @@
+@use '../../../shared/styling/global' as *;
+
+.root{
+  height: 557px;
+  padding: $space-4;
+  position: relative;
+
+  >.innerWrapper{
+    border-radius: $radius-md;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+    padding: $space-3;
+    position: relative;
+
+    >.card{
+      width: 100%;
+      background: $color-accent-light-yellow;
+      border-radius: $radius-lg;
+      position: relative;
+      overflow: hidden;
+
+      &.cardBefore{
+        grid-column: 1;
+
+        &::before{
+          @include cover-model-pseudo-element(right);
+          @include cover-out-right-animation;
+        }
+      }
+
+      &.cardAfter{
+        grid-column: 3;
+
+        &::after{
+          @include cover-model-pseudo-element(left);
+          @include cover-out-left-animation;
+        }
+      }
+
+      > span{
+        font-family: $font-secondary;
+        font-size: $font-size-md;
+        font-weight: 300;
+        width: 100%;
+        text-align: center;
+        color: $color-white;
+        height: 50px;
+        display: grid;
+        place-content: center;
+        z-index: 2;
+        position: relative;
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+// =============================================================
+// COLORS
+// =============================================================
+
+
+// -------------------------------------------------------------
+// PALETTE — raw values
+// -------------------------------------------------------------
+
+// Neutrals
+$color-white:        #ffffff;
+$color-off-white:    #f5f4f0;
+$color-mute-white:   #f2f2f21A;
+$color-dirty-white:  #F2F2F2;
+$color-light-gray:   #ebebeb;
+$color-mid-gray:     #b0ada8;
+$color-dark-gray:    #6b6861;
+$color-charcoal:     #2e2c2a;
+$color-near-black:   #1a1917;
+$color-black:        #0d0c0b;
+
+// Dark section
+$color-dark-bg:      #1c1b19;
+$color-dark-surface: #242320;
+$color-dark-border:  #333230;
+$color-dark-text-muted:    #c8c5bf;
+$color-gray-border: #C7D1D54D;
+$color-dark-text: #515255;
+$color-dark-muted:   #7a7770;
+$color-dark-accent:  #233137;
+
+// Blue accent
+$color-blue-light: #f9fbfb;
+
+// Brand accent — warm tan / skin
+$color-accent:         #c9a882;
+$color-accent-blue:    #9aaeb5;
+$color-accent-light-yellow:  #aeC2C9;
+$color-accent-light:   #e2cebc;
+$color-accent-dark:    #a37156;
+$color-accent-subtle:  #f0e8df;
+
+// Overlays
+$color-overlay:       rgba(0, 0, 0, 0.45);
+$color-overlay-light: rgba(0, 0, 0, 0.25);
+
+// ui — FAQ
+$color-faq-bg:       #f8f7f5;
+$color-faq-border:   #e5e3df;
+$color-faq-active:   #ffffff;
+$color-faq-tag:      #eceae6;
+$color-faq-tag-text: #5a5753;
+
+// Step indicators
+$color-step-active:   #c9a882;
+$color-step-inactive: #d4d1cc;
+$color-step-line:     #dedad5;
+
+// Chart / analysis overlay
+$color-chart-bg:      rgba(28, 27, 25, 0.85);
+$color-chart-border:  rgba(255, 255, 255, 0.08);
+$color-chart-bar:     #c9a882;
+$color-chart-bar-dim: rgba(201, 168, 130, 0.35);
+
+
+// -------------------------------------------------------------
+// SEMANTIC ALIASES — prefer these over raw values in components
+// -------------------------------------------------------------
+
+// Backgrounds
+$bg-page:          $color-off-white;
+$bg-section-light: $color-white;
+$bg-section-dark:  $color-dark-bg;
+$bg-surface:       $color-faq-bg;
+$bg-overlay:       $color-overlay;
+$bg-accent-subtle: $color-accent-subtle;
+$bg-section:       $color-dark-accent;
+
+// Text
+$text-primary:       $color-near-black;
+$text-body:          $color-charcoal;
+$text-secondary:     $color-dark-gray;
+$text-muted:         $color-mid-gray;
+$text-on-dark:       $color-dark-text-muted;
+$text-on-dark-muted: $color-dark-muted;
+$text-accent:        $color-accent;
+$text-on-accent:     $color-white;
+
+// Borders
+$border-light:  $color-light-gray;
+$border-subtle: $color-faq-border;
+$border-muted:  $color-mute-white;
+$border-dark:   $color-dark-border;
+$border-accent-blue:   $color-accent-blue;
+
+// Interactive
+$interactive-primary:  $color-accent;
+$interactive-hover:    $color-accent-dark;
+$interactive-focus:    $color-accent-light;
+$interactive-disabled: $color-mid-gray;
+
+// Brand
+$brand-accent:       $color-accent;
+$brand-accent-light: $color-accent-light;
+$brand-accent-dark:  $color-accent-dark;

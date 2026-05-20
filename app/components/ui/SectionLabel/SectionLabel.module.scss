@@ -1,0 +1,49 @@
+@use '../../../shared/styling/global' as *;
+
+.root {
+  position: relative;
+  width: fit-content;
+  text-transform: uppercase;
+  border-radius: $radius-xl;
+  font-size: $font-size-xs;
+  padding: $space-1 $space-3;
+  color: $color-white;
+  font-family: $font-secondary;
+  font-weight: 400;
+  font-style: inherit;
+  line-height: 14px;
+  letter-spacing: -0.5%;
+  text-align: center;
+  vertical-align: middle;
+
+  >span{
+    @include fade-in-animation;
+  }
+
+  @include lg {
+    font-size: $font-size-sm;
+    padding: $space-1 $space-4;
+  }
+
+  >.borderSvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: visible;
+
+    >.borderRect {
+      stroke: $color-gray-border;
+    }
+  }
+
+
+
+  &.secondary {
+    color: $color-accent-blue;
+
+    .borderRect {
+      stroke: $color-accent-blue;
+    }
+  }
+}

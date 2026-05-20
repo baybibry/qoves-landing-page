@@ -1,0 +1,149 @@
+// =============================================================
+// FONTS
+// =============================================================
+
+
+// -------------------------------------------------------------
+// PP Neue Montreal — primary sans-serif
+// -------------------------------------------------------------
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNueveMontreal/PPNeueMontreal-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNueveMontreal/PPNeueMontreal-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNueveMontreal/PPNeueMontreal-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNueveMontreal/PPNeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNueveMontreal/PPNeueMontreal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+// -------------------------------------------------------------
+// F37 Zagma Mono — monospace / data / labels
+// -------------------------------------------------------------
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-Book.otf') format('opentype');
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-BookItalic.otf') format('opentype');
+  font-weight: 450;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'F37 Zagma Mono';
+  src: url('/fonts/ZagmaMono/F37ZagmaMonoTrial-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+// -------------------------------------------------------------
+// FONT TOKENS
+// -------------------------------------------------------------
+
+$font-primary:   'PP Neue Montreal', 'Helvetica Neue', Arial, sans-serif;
+$font-secondary: 'F37 Zagma Mono', 'Courier New', monospace;
+
+$font-size-xs:   0.6875rem;  // 11px — tags, badges
+$font-size-sm:   0.75rem;    // 12px — captions, fine print
+$font-size-base: 0.875rem;   // 14px — body text
+$font-size-md:   1rem;       // 16px — large body
+$font-size-lg:   1.25rem;    // 20px — lead text
+$font-size-xl:   1.75rem;    // 28px — section headings
+$font-size-2xl:  2.5rem;     // 40px — hero headings
+$font-size-3xl:  3.5rem;     // 56px — large display
+$font-size-4xl:  5rem;       // 80px — editorial display
+
+$font-weight-regular:  400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+
+$line-height-xs:      1.167; // 14/12 — mono small text (Figma Body 4 Zagma)
+$line-height-tight:   1.1;
+$line-height-snug:    1.3;
+$line-height-normal:  1.5;
+$line-height-relaxed: 1.7;
+
+$letter-spacing-tight:  -0.03em;
+$letter-spacing-normal: -0.01em;
+$letter-spacing-wide:    0.06em;

@@ -1,0 +1,101 @@
+@use '../../../shared/styling/global' as *;
+
+.root {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(325px, 1fr));
+  grid-template-rows: repeat(1, 1fr);
+  z-index: 4;
+  position: relative;
+  width: 100%;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+    overflow: unset;
+  }
+
+  > .cardWrapper {
+    padding: $space-4;
+    min-width: 325px;
+    transition: all 0.5s ease-in-out;
+    height: 221px;
+
+    &:hover{
+
+      @include md{
+        padding: unset;
+
+        >.cardInnerWrapper{
+          border-radius: 0;
+
+          >.cardImageContainer{
+            border-radius: 0;
+            width: 100%;
+            height: 75%;
+          }
+        }
+      }
+    }
+
+    @include md {
+      border-top: 1px solid rgba($color-dirty-white, 0.5);
+      backdrop-filter: blur(10px);
+
+      &:first-child {
+        border-left: 1px solid rgba($color-dirty-white, 0.5);
+      }
+
+      &:last-child{
+        border-right: 1px solid rgba($color-dirty-white, 0.5);
+      }
+
+      &:not(:first-child) {
+        border-left: 1px solid rgba($color-dirty-white, 0.5);
+      }
+    }
+
+    > .cardInnerWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: $space-2;
+      @include glass-frost;
+      border-radius: $radius-md;
+      padding: $space-4;
+      height: 100%;
+      color: $color-white;
+
+      @include md {
+        min-width: unset;
+      }
+
+      > .cardImageContainer {
+        width: 50%;
+        height: 75px;
+        position: relative;
+        border-radius: $radius-md;
+        overflow: hidden;
+        transition:
+                width         0.5s ease-in-out ,
+                height        0.5s ease-in-out ,
+                border-radius 0.5s ease-in-out;
+
+        > img {
+          object-fit: cover;
+        }
+      }
+
+      > span {
+        font-weight: 500;
+        font-size: $font-size-md;
+        line-height: $space-6;
+      }
+
+      > p {
+        font-weight: 400;
+        font-size: $font-size-base;
+        line-height: $space-5;
+      }
+    }
+  }
+}

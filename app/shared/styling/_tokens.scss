@@ -1,0 +1,88 @@
+// =============================================================
+// TOKENS — non-color design tokens
+// =============================================================
+
+
+// -------------------------------------------------------------
+// BREAKPOINTS
+// -------------------------------------------------------------
+
+$sm:  375px; // Small Phones
+$md:  768px; // Tablet / Folds
+$lg:  1440px; // Desktop
+$xl:  1920px; // Wide screens
+
+
+// -------------------------------------------------------------
+// SPACING
+// -------------------------------------------------------------
+
+$space-1:  0.25rem;   //  4px
+$space-2:  0.5rem;    //  8px
+$space-3:  0.75rem;   // 12px
+$space-4:  1rem;      // 16px
+$space-5:  1.25rem;   // 20px
+$space-6:  1.5rem;    // 24px
+$space-8:  2rem;      // 32px
+$space-10: 2.5rem;    // 40px
+$space-12: 3rem;      // 48px
+$space-16: 4rem;      // 64px
+$space-20: 5rem;      // 80px
+$space-24: 6rem;      // 96px
+$space-32: 8rem;      // 128px
+
+$section-padding-y:        $space-24;
+$section-padding-y-mobile: $space-16;
+$container-max-width:      1440px;
+$content-max-width:        1360px;
+$container-padding-x:      $space-8;
+$container-clamp-width:    clamp(400px, 95%, $content-max-width);;
+
+
+// -------------------------------------------------------------
+// BORDER RADIUS
+// -------------------------------------------------------------
+
+$radius-sm:   4px;
+$radius-md:   8px;
+$radius-lg:   12px;
+$radius-xl:   20px;
+$radius-full: 9999px;
+
+
+// -------------------------------------------------------------
+// SHADOWS
+// -------------------------------------------------------------
+
+$shadow-sm: 0 1px 4px  rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+
+// -------------------------------------------------------------
+// TRANSITIONS
+// -------------------------------------------------------------
+
+$duration-fast:   150ms;
+$duration-base:   250ms;
+$duration-slow:   400ms;
+$duration-gsap:   600ms;
+
+$ease-out:    cubic-bezier(0.0,  0.0, 0.2, 1);
+$ease-in:     cubic-bezier(0.4,  0.0, 1.0, 1);
+$ease-in-out: cubic-bezier(0.4,  0.0, 0.2, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+
+// -------------------------------------------------------------
+// Z-INDEX
+// -------------------------------------------------------------
+
+$z-below:    -1;
+$z-base:      0;
+$z-raised:    10;
+$z-dropdown:  100;
+$z-sticky:    200;
+$z-overlay:   300;
+$z-modal:     400;
+$z-toast:     500;

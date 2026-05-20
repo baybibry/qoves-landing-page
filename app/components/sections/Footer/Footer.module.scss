@@ -1,0 +1,7 @@
+@use '../../../shared/styling/global' as *;
+
+.root {
+  height: 120px;
+  position: relative;
+  @include section-grid-lines-vertical;
+}

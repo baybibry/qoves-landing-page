@@ -1,0 +1,99 @@
+@use 'tokens' as *;
+@use 'colors' as *;
+@use 'fonts' as *;
+@use 'mixins' as *;
+
+// -------------------------------------------------------------
+// CSS CUSTOM PROPERTIES
+// Exposes SCSS tokens to JS / runtime theming
+// -------------------------------------------------------------
+
+:root {
+  // Colors
+  --color-bg-page:        #{$bg-page};
+  --color-bg-dark:        #{$bg-section-dark};
+  --color-bg-surface:     #{$bg-surface};
+  --color-text-primary:   #{$text-primary};
+  --color-text-body:      #{$text-body};
+  --color-text-secondary: #{$text-secondary};
+  --color-text-muted:     #{$text-muted};
+  --color-text-on-dark:   #{$text-on-dark};
+  --color-accent:         #{$brand-accent};
+  --color-accent-light:   #{$brand-accent-light};
+  --color-accent-dark:    #{$brand-accent-dark};
+  --color-border:         #{$border-light};
+  --color-border-subtle:  #{$border-subtle};
+
+  // Typography
+  --font-primary:         #{$font-primary};
+  --font-secondary:       #{$font-secondary};
+  --line-height-xs:       #{$line-height-xs};
+
+  // Layout
+  --section-padding-y:   #{$section-padding-y};
+  --container-max-width: #{$container-max-width};
+  --container-padding-x: #{$container-padding-x};
+
+  // Motion
+  --duration-base: #{$duration-base};
+  --duration-slow: #{$duration-slow};
+}
+
+
+// -------------------------------------------------------------
+// BASE
+// -------------------------------------------------------------
+
+html {
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $text-body;
+  background-color: $color-white;
+}
+
+
+// -------------------------------------------------------------
+// TYPOGRAPHY
+// -------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: $line-height-tight;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+p { line-height: $line-height-relaxed; }
+
+
+// -------------------------------------------------------------
+// FOCUS
+// -------------------------------------------------------------
+
+:focus-visible {
+  outline: 2px solid $interactive-focus;
+  outline-offset: 2px;
+}
+
+
+// -------------------------------------------------------------
+// REDUCED MOTION
+// -------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

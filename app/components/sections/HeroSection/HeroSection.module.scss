@@ -1,0 +1,35 @@
+@use '../../../shared/styling/global' as *;
+
+.root {
+  display: none;
+  pointer-events: none;
+  padding: $space-10 0 $space-20;
+  overflow: hidden;
+
+  @include lg{
+    pointer-events: all;
+    background: $bg-section-light;
+    width: 100%;
+    @include flex-center;
+    @include section-grid-lines-vertical;
+    flex-direction: column;
+    gap: $space-10;
+
+    >.sectionInfo{
+      @include section-info-container;
+    }
+  }
+
+  >.heroContent{
+    max-width: $content-max-width;
+    width: 100%;
+
+    >.linearStyle{
+      position: relative;
+    }
+
+    >.cardsWrapper{
+      margin-top: -1px;
+    }
+  }
+}

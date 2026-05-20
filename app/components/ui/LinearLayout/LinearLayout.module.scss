@@ -1,0 +1,15 @@
+@use '../../../shared/styling/global' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &.verticalBorder{
+    @include section-grid-lines-horizontal;
+  }
+
+  @include md{
+    max-width: $content-max-width;
+  }
+}

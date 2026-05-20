@@ -1,0 +1,265 @@
+{
+  "categories": [
+    {
+      "name": "General",
+      "items": [
+        {
+          "question": "What is Qoves?",
+          "answer": "World's best platform to improve looks and achieve facial transformation without surgery, using a personalized facial analysis and transformation plan based on over 2,000 academic studies."
+        },
+        {
+          "question": "Who is this for?",
+          "answer": "Anyone who wants to improve their looks with science-based methods, without surgery."
+        },
+        {
+          "question": "What exactly will I receive?",
+          "answer": "Comprehensive facial analysis, personalized glow-up protocol, biometric scores, before-and-after visualizations, an aesthetic letter from the team, and messaging access to the care team. Updated annually."
+        },
+        {
+          "question": "Can't I just do this with ChatGPT or Claude?",
+          "answer": "LLMs can only offer generic guidance; they cannot landmark a face, measure skin texture, or perform 100+ aesthetic tests. Qoves uses proprietary models built over years of research."
+        },
+        {
+          "question": "How long will it take to receive my results?",
+          "answer": "Up to 28 days after uploading photos."
+        },
+        {
+          "question": "How does it work?",
+          "answer": "1. Provide demographics, lifestyle, and goals. 2. Upload 6 photo angles. 3. Receive your full protocol and visualizations within 28 days."
+        },
+        {
+          "question": "Is this a one-time report or a continuous service?",
+          "answer": "Ongoing annual subscription, cancellable anytime, with unlimited messaging to the aesthetic team."
+        },
+        {
+          "question": "How often do I need to submit photos?",
+          "answer": "Once a year."
+        },
+        {
+          "question": "What makes Qoves different from beauty apps or filters?",
+          "answer": "Millimeter-accurate measurements, realistic non-surgical visualizations, and a recommendation engine using the latest research."
+        },
+        {
+          "question": "Can I really get results without surgery?",
+          "answer": "Yes. Many small combined changes produce dramatic results without surgery."
+        }
+      ]
+    },
+    {
+      "name": "About the Analysis",
+      "items": [
+        {
+          "question": "What's included in the facial analysis?",
+          "answer": "Symmetry, proportions, masculinity/femininity scoring, and a breakdown of each individual feature and how it affects overall aesthetics."
+        },
+        {
+          "question": "How accurate is your analysis?",
+          "answer": "Measurements are accurate to the nearest millimeter, surpassing top aesthetic clinics."
+        },
+        {
+          "question": "Is this actually science-backed, or just AI hype?",
+          "answer": "Grounded in 2,000+ peer-reviewed studies; would cost over $15,000 if done manually by experts."
+        },
+        {
+          "question": "Does it work for all ethnicities?",
+          "answer": "Yes. Every test is adjusted for ethnicity, age, sex, and lifestyle."
+        },
+        {
+          "question": "How often can I get a new analysis?",
+          "answer": "Once a year with new photos."
+        }
+      ]
+    },
+    {
+      "name": "About the Protocol",
+      "items": [
+        {
+          "question": "What is the protocol?",
+          "answer": "A step-by-step glow-up plan with personalized, non-surgical recommendations and visual previews for each feature."
+        },
+        {
+          "question": "What's included in my protocol?",
+          "answer": "Recommended improvements per feature, explanations, visualizations, multiple alternatives (products/exercises/treatments), step-by-step instructions, and an aesthetic letter."
+        },
+        {
+          "question": "Does the protocol really work?",
+          "answer": "Yes. Expect real results within the first week; dramatic transformation within 4 months."
+        },
+        {
+          "question": "What kind of recommendations will I get?",
+          "answer": "Product recommendations, skincare routines, hair advice, OTC products, makeup/styling, color/contrast advice, lifestyle changes, facial exercises, facial posture, supplements, at-home devices, in-clinic treatments, non-surgical injectables, dental aesthetics, facial expression control, and health screening."
+        },
+        {
+          "question": "Can I trust the recommendations?",
+          "answer": "Yes. All are safe and clinically proven."
+        },
+        {
+          "question": "How long does it take to glow up?",
+          "answer": "First week for initial results; 4 months for most users."
+        },
+        {
+          "question": "Are you going to push me to buy products or procedures?",
+          "answer": "No. Both premium and budget-friendly options are offered; many recommendations are free."
+        },
+        {
+          "question": "Can I see what my face will look like?",
+          "answer": "Yes. Realistic visualizations of all changes combined, plus individual previews per change."
+        },
+        {
+          "question": "What if I don't like the suggestions?",
+          "answer": "You can follow only what you like and chat with the aesthetic team for alternatives."
+        },
+        {
+          "question": "How often can I get a new protocol?",
+          "answer": "Once a year."
+        },
+        {
+          "question": "Are there any risks?",
+          "answer": "Recommendations are safe and minimally invasive; checking with a doctor for treatments/procedures is advised."
+        },
+        {
+          "question": "Are the recommendations expensive?",
+          "answer": "Multiple budget options are provided per recommendation. Attractiveness has documented financial and social benefits, so it can be viewed as an investment."
+        },
+        {
+          "question": "Do I have to follow everything perfectly for it to work?",
+          "answer": "No. Following the majority is enough for dramatic results."
+        }
+      ]
+    },
+    {
+      "name": "Experience & Use",
+      "items": [
+        {
+          "question": "How do I get started?",
+          "answer": "Sign up on the website, create an account, fill out the questionnaire, and upload photos. Results arrive within 28 days."
+        },
+        {
+          "question": "Do I need to upload special photos?",
+          "answer": "No special equipment needed. Upload 6 clear photos from different angles with the guidance provided."
+        },
+        {
+          "question": "Do I have to download an app?",
+          "answer": "No. The service is fully browser-based."
+        },
+        {
+          "question": "Can I use this on mobile?",
+          "answer": "Yes. The platform is fully mobile-optimized."
+        }
+      ]
+    },
+    {
+      "name": "Pricing",
+      "items": [
+        {
+          "question": "How much does it cost?",
+          "answer": "$150 per year."
+        },
+        {
+          "question": "What's included in the subscription?",
+          "answer": "Full facial analysis and protocol, biometric scores, visualizations, aesthetic letter, annual updates, and messaging access to a real (non-AI) team."
+        },
+        {
+          "question": "Is it a one-time payment or subscription?",
+          "answer": "Yearly subscription, cancel anytime."
+        },
+        {
+          "question": "Can I cancel anytime?",
+          "answer": "Yes. No contracts; cancel or pause from account settings."
+        }
+      ]
+    },
+    {
+      "name": "Privacy & Data",
+      "items": [
+        {
+          "question": "Will my photos and data be kept private?",
+          "answer": "Yes. Encrypted and stored securely; only essential staff can access photos; never shared publicly."
+        },
+        {
+          "question": "Is my information safe?",
+          "answer": "Yes. Strict data protection and privacy regulations are followed."
+        },
+        {
+          "question": "Can I delete my account and all my data?",
+          "answer": "Yes. Request deletion from account settings; all data is removed from servers."
+        }
+      ]
+    },
+    {
+      "name": "Mindset & Philosophy",
+      "items": [
+        {
+          "question": "Is wanting to improve your appearance toxic?",
+          "answer": "No. Attractiveness has documented scientific benefits across employment, income, relationships, and mental health. Improving appearance is about maximizing quality of life."
+        },
+        {
+          "question": "Will this make me feel worse about myself?",
+          "answer": "No. Most insecurity stems from uncertainty. The analysis gives clarity, identifies genuinely positive features, and provides a clear science-based plan — clients typically report greater confidence afterward."
+        },
+        {
+          "question": "Do I really need this to look better?",
+          "answer": "Not strictly, but Qoves makes improvement faster, safer, and more effective than independent research, and likely saves time and money."
+        },
+        {
+          "question": "Isn't this promoting toxic beauty standards?",
+          "answer": "No. The goal is to enhance your unique facial characteristics with natural, non-surgical, healthy-looking improvements."
+        }
+      ]
+    },
+    {
+      "name": "Edge Cases",
+      "items": [
+        {
+          "question": "I've had cosmetic procedures before — will this still work?",
+          "answer": "Yes. Prior procedures are taken into account."
+        },
+        {
+          "question": "I don't want surgery — can this still help me?",
+          "answer": "Yes. Qoves specializes in non-surgical improvements."
+        },
+        {
+          "question": "I live outside the US — can I still use Qoves?",
+          "answer": "Yes. The service is 100% online and available worldwide."
+        },
+        {
+          "question": "I don't know anything about facial aesthetics — is that okay?",
+          "answer": "Yes. Qoves is designed to be accessible to complete beginners."
+        }
+      ]
+    },
+    {
+      "name": "Support",
+      "items": [
+        {
+          "question": "Can I really talk to your team?",
+          "answer": "Yes. Via the member dashboard anytime."
+        },
+        {
+          "question": "What if a recommendation doesn't work for me?",
+          "answer": "Contact the team; the protocol will be adjusted with alternatives."
+        },
+        {
+          "question": "How can I contact Qoves if I need help?",
+          "answer": "Through the member dashboard, email, or live chat."
+        },
+        {
+          "question": "Will I get support from a real person or just AI?",
+          "answer": "Always real people."
+        },
+        {
+          "question": "How quickly do you respond to questions?",
+          "answer": "Usually within 24 hours, often faster."
+        },
+        {
+          "question": "Can someone help me understand my results?",
+          "answer": "Yes. The team explains results, next steps, and anything unclear."
+        },
+        {
+          "question": "Still unsure?",
+          "answer": "Email inquiry@qoves.com."
+        }
+      ]
+    }
+  ]
+}

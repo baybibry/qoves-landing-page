@@ -1,0 +1,93 @@
+@use '../../../shared/styling/global' as *;
+
+.root{
+  @include grid-auto-fill;
+  width: 100%;
+  gap: unset;
+
+  >.cardContainer{
+    padding: $space-4;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    border-right: 2px solid rgba($color-dirty-white, 0.5);
+    position: relative;
+
+    &:first-child{
+      border-left: 2px solid rgba($color-dirty-white, 0.5);
+    }
+
+
+    >.innerCardWrapper{
+      border-radius: $radius-lg;
+      border: 1px solid $color-accent-subtle;
+      height: 152px;
+      width: 100%;
+      @include flex-between;
+      flex-direction: column;
+      padding: $space-4;
+      align-items: flex-start;
+
+      >.badge{
+        width: 24px;
+        height: 24px;
+        color: $color-white;
+        background: $color-accent-blue;
+        border-radius: $radius-full;
+        font-family: $font-secondary;
+        display: grid;
+        place-items: center;
+      }
+
+      >.content{
+        color:$color-dark-accent;
+        font-size: $font-size-lg;
+      }
+
+      &:hover{
+        background: $color-accent-blue;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.15s ease-in-out;
+
+        >.badge, >.content {
+          position: relative;
+          z-index: 2;
+        }
+
+        >.badge{
+          background: rgba($color-white, 0.2);
+        }
+
+        >.content{
+          color: $color-white;
+        }
+
+        &::before, &::after{
+          content: '';
+          pointer-events: none;
+          z-index: 1;
+          position: absolute;
+          width: 53%;
+          height: 120%;
+          top: -10px;
+          -webkit-backdrop-filter: blur(100px);
+          border-radius: $radius-full;
+          backdrop-filter: blur(100px);
+          filter: blur(20px);
+        }
+
+        &::before{
+          left: 0;
+          background: rgba($color-accent-dark, 0.2);
+        }
+
+        &::after{
+          right: 0;
+          background: rgba($color-dark-bg, 0.12);
+        }
+      }
+    }
+
+  }
+}

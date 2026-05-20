@@ -1,0 +1,38 @@
+@use '../../../shared/styling/global' as *;
+
+.root {
+  background: $color-white;
+  padding: 0 $space-4;
+  position: relative;
+  @include flex-center;
+  overflow: hidden;
+
+  @include md{
+    padding: $space-16;
+    @include section-grid-lines-vertical;
+  }
+
+  @include lg{
+    padding: $space-32;
+  }
+
+  > .linearLayout{
+    //padding: $space-10 0;
+    gap: $space-6;
+
+    @include md{
+      padding: $space-10;
+    }
+
+    > .sectionInfo {
+      z-index: 3;
+      @include section-info-container;
+    }
+
+    >.accordionWrapper {
+      flex: 1;
+      width: 100%;
+      z-index: 4;
+    }
+  }
+}
