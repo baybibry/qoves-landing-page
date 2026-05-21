@@ -8,7 +8,7 @@ import {
     CurveGraph, SlideGraph, ScatterPlot,
     BarChart, SegmentChart, VerticalScaleChart,
 } from "@/ui";
-import { useIsVisible } from "@/shared/hooks/useIsVisible";
+import { useIsVisible } from "@/shared/hooks";
 
 const FacialAnalysisSection = () => {
     // Drive --float-play on the section root so all chart float animations

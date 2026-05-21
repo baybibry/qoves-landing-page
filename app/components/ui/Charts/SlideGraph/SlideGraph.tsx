@@ -1,7 +1,7 @@
 "use client";
 
 import type { SliderGraphProps } from "./SlideGraph.types";
-import { useCountUp } from "@/shared/hooks/useCountUp";
+import { useCountUp } from "@/shared/hooks";
 import styles from "./SlideGraph.module.scss";
 
 const SliderGraph = ({

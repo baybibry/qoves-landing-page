@@ -15,4 +15,4 @@ export {
     BarChart,
     VerticalScaleChart,
     SegmentChart,
-} from './Charts';
+} from './Charts/index';
