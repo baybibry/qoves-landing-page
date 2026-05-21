@@ -1,7 +1,6 @@
 import styles from './FAQSection.module.scss';
-import { SectionContent, SectionLabel, SectionTitle, Accordion } from "@/ui";
-import faqData from '../../../data/faq.json';
-import LinearLayout from "@/app/components/ui/LinearLayout/LinearLayout";
+import { SectionContent, LinearLayout, SectionLabel, SectionTitle, Accordion } from "@/ui";
+import faqData from '@/app/shared/data/faq.json';
 
 const FAQSection = () => {
     return (

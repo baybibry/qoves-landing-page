@@ -25,6 +25,10 @@
     font-size: $font-size-2xl;
   }
 
+  @include lg {
+    font-size: $font-size-3xl;
+  }
+
   &.default{
     color: $color-white;
   }

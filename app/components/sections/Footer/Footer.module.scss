@@ -1,7 +1,12 @@
 @use '../../../shared/styling/global' as *;
 
 .root {
-  height: 120px;
-  position: relative;
-  @include section-grid-lines-vertical;
+  display: none;
+
+  @include lg{
+    display: block;
+    height: 120px;
+    position: relative;
+    @include section-grid-lines-vertical;
+  }
 }

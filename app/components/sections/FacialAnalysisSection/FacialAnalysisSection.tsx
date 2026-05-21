@@ -1,13 +1,28 @@
+"use client";
+
 import styles from './FacialAnalysisSection.module.scss';
-import {SectionLabel, SectionTitle, SectionContent} from "@/ui";
 import Image from "next/image";
 import clsx from "clsx";
-import { graphLayer1, graphLayer2 } from './FacialAnalysisSection.data';
+import {
+    SectionLabel, SectionTitle, SectionContent,
+    CurveGraph, SlideGraph, ScatterPlot,
+    BarChart, SegmentChart, VerticalScaleChart,
+} from "@/ui";
+import { useIsVisible } from "@/shared/hooks/useIsVisible";
 
 const FacialAnalysisSection = () => {
+    // Drive --float-play on the section root so all chart float animations
+    // are paused while the section is off-screen (zero compositor work)
+    // and resume automatically as it scrolls into view.
+    const { ref, isVisible } = useIsVisible<HTMLDivElement>();
 
     return (
-        <div className={styles.root}>
+        <div
+            ref={ref}
+            className={styles.root}
+            data-float-active={isVisible ? '' : undefined}
+            style={{ '--float-play': isVisible ? 'running' : 'paused' } as React.CSSProperties}
+        >
             <div className={styles.sectionInfo}>
 
                 <SectionLabel label="Personalized Aesthetics" />
@@ -20,46 +35,31 @@ const FacialAnalysisSection = () => {
 
                 <SectionContent
                     color="primary"
-                    content={`Every face is unique. We assess more than 100 unique facial markers to \n give you a precise understanding of your aesthetics.`}
+                    content={`Every face is unique. We assess more than 100 unique facial markers to give you a precise understanding of your aesthetics.`}
                 />
 
             </div>
 
             <div className={styles.graphContainer}>
                 <div className={clsx(styles.graphGridWrapper, styles.gridLayout1)}>
-                    {
-                        graphLayer1.map((item, index) =>(
-                            <div
-                                className={styles.graphImage}
-                                key={`${index}-${item.img}-${item.area}`}
-                                style={{gridArea: item.area}}
-                            >
-                                <Image
-                                    fill
-                                    alt={item.img}
-                                    src={`/assets/graph/${item.img}.webp`}
-                                />
-                            </div>
-                        ))
-                    }
+
+                        <CurveGraph/>
+
+                        <SlideGraph
+                            label="Lip Smoothness"
+                            value={56}
+                        />
+
+                        <ScatterPlot/>
                 </div>
 
                 <div className={clsx(styles.graphGridWrapper, styles.gridLayout2)}>
-                    {
-                        graphLayer2.map((item, index) =>(
-                            <div
-                                className={styles.graphImage}
-                                key={`${index}-${item.img}-${item.area}`}
-                                style={{gridArea: item.area}}
-                            >
-                                <Image
-                                    fill
-                                    alt={item.img}
-                                    src={`/assets/graph/${item.img}.webp`}
-                                />
-                            </div>
-                        ))
-                    }
+
+                    <BarChart/>
+
+                    <SegmentChart/>
+
+                    <VerticalScaleChart/>
                 </div>
 
                 <div className={styles.personModel}>

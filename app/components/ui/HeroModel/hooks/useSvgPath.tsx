@@ -136,7 +136,7 @@ export const useSvgPath = () => {
                 ref={dotLeftRef}
                 width="5"
                 height="5"
-                rx="1"
+                rx="2.5"
                 fill="#869AA1"
                 filter="url(#glow)"
             />
@@ -145,7 +145,7 @@ export const useSvgPath = () => {
                 ref={dotRightRef}
                 width="5"
                 height="5"
-                rx="1"
+                rx="2.5"
                 fill="#869AA1"
             />
         </svg>

@@ -1,9 +1,8 @@
 'use client';
 
 import styles from './VanitySection.module.scss';
-import { SectionContent, SectionTitle } from "@/ui";
+import { SectionContent, SectionTitle, VanityCard } from "@/ui";
 import { vanityCard } from './VanitySection.data';
-import clsx from 'clsx';
 
 const VanitySection = () => {
     return (
@@ -25,20 +24,12 @@ const VanitySection = () => {
                 <div className={styles.contentWrapper}>
                     <div className={styles.scrollWrapper}>
                         {vanityCard.map((item, index) => (
-                            <div
+                            <VanityCard
                                 key={`${index}-${item.title}`}
-                                className={clsx(styles.vanityCardContainer, styles[item.gridArea])}
-                            >
-                                <div className={styles.cardTitle}>{item.title}</div>
-
-                                <div className={styles.miniCardContainer}>
-                                    {item.miniCards.map((miniCard, i) => (
-                                        <div key={i} className={styles.miniCardContent}>
-                                            {miniCard}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                                title={item.title}
+                                gridArea={item.gridArea}
+                                miniCards={item.miniCards}
+                            />
                         ))}
                     </div>
                 </div>

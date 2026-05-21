@@ -1,0 +1,172 @@
+@use '../../../../shared/styling/global' as *;
+
+.root {
+  @include glass-chart-card;
+  width: 100%;
+  grid-area: area-4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: $space-2;
+  @include float-animation(5.6s, 3.1s);
+
+  @include lg {
+    padding: $space-3;
+  }
+
+  > .chartWrapper {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: $space-2 0;
+
+    @include lg {
+      padding: $space-4 0;
+    }
+
+    > .barWrapper {
+      position: relative;
+      width: 12px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      @include md { width: 16px; }
+      @include lg { width: 20px; }
+
+      > .bar {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          #c8dff0 0%,
+          #a8c4e0 15%,
+          #7ab648 35%,
+          #5a8a2a 45%,
+          #8B6914 60%,
+          #5c3d08 70%,
+          #3d1c02 80%,
+          #1a0a00 100%
+        );
+      }
+
+      > .zoneLabel {
+        position: absolute;
+        left: calc(100% + 8px);
+        transform: translateY(-50%);
+        font-size: clamp(0.35rem, 4cqh, 0.5625rem);
+        color: rgba(255, 255, 255, 0.7);
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+
+        @include md { left: calc(100% + 10px); }
+        @include lg {
+          left: calc(100% + 14px);
+          letter-spacing: 0.05em;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -12px;
+          transform: translateY(-50%);
+          width: 10px;
+          height: 3px;
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    > .markerLine {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      gap: $space-12;
+      transition: top 1s ease-in-out;
+
+      @include lg { gap: $space-24; }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        border-top: 1px dashed $color-white;
+        z-index: 0;
+      }
+
+      > .markerLeft {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: clamp(0.35rem, 4cqh, $font-size-xxs);
+        color: $color-charcoal;
+        background: $color-white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 2px 5px;
+        border-radius: 4px;
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+        width: fit-content;
+
+        @include md { gap: 4px; padding: 2px 6px; }
+        @include lg { gap: 4px; padding: 2px 8px; }
+
+        > .markerDot {
+          border-radius: 2px;
+          background: $color-charcoal;
+          flex-shrink: 0;
+          width: 3px;
+          height: 3px;
+
+          @include md { width: 4px; height: 4px; }
+          @include lg { width: 6px; height: 6px; }
+        }
+      }
+
+      > .markerRight {
+        font-size: clamp(0.35rem, 4cqh, $font-size-xxs);
+        background: $color-white;
+        white-space: nowrap;
+        width: fit-content;
+        position: relative;
+        z-index: 1;
+        border-radius: 4px;
+        padding: 2px 4px;
+      }
+    }
+
+    > .highlight {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      height: 1rem;
+      border: 2px solid $color-dark-text-muted;
+      transition: top 1s ease-in-out;
+
+      @include md { width: 16px; height: 3rem; }
+      @include lg { width: 20px; }
+    }
+  }
+
+  > .caption {
+    @include caption-pill;
+  }
+}

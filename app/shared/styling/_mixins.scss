@@ -18,6 +18,10 @@
 @mixin max-lg { @media (max-width: #{$lg  - 1px}) { @content; } }
 @mixin max-xl { @media (max-width: #{$xl  - 1px}) { @content; } }
 
+// Height — short mobile screens (e.g. iPhone SE, landscape phones)
+// Targets viewports ≤ 600 px tall regardless of width.
+@mixin short-mobile { @media (max-height: 700px) { @content; } }
+
 // Range
 @mixin between($min, $max) {
   @media (min-width: $min) and (max-width: #{$max - 1px}) { @content; }
@@ -38,6 +42,39 @@
   -webkit-backdrop-filter: blur($blur);
   background: $bg;
   border: $border-width solid $border-color;
+  // Creates an independent stacking context so each blurred panel is
+  // composited in isolation — critical for Chrome's GPU blur path.
+  isolation: isolate;
+}
+
+
+// Chart card glass panel — blur + saturate + dark tint used on every chart card.
+// Separate from glass-frost because charts need saturate(180%) and a darker tint.
+@mixin glass-chart-card {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba($color-dark-gray, 0.35);
+  border: 1px solid rgba($color-mute-white, 0.2);
+  border-radius: $radius-lg;
+  position: relative;
+  container-type: size;
+}
+
+// Caption pill — frosted text block at the bottom of chart cards.
+// Override font-size / line-height inline when the card uses clamp() values.
+@mixin caption-pill {
+  padding: $space-1;
+  border-radius: $radius-sm;
+  background: rgba($color-white, 0.07);
+  color: rgba($color-white, 0.65);
+  font-size: $font-size-xxs;
+  line-height: $space-5;
+
+  @include lg {
+    padding: $space-2 $space-3;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+  }
 }
 
 
@@ -98,8 +135,12 @@
 @mixin section-info-container {
   @include flex-center;
   flex-direction: column;
-  gap: $space-10;
   padding-top: $space-20;
+  gap: 0;
+
+  @include lg{
+    gap: $space-10;
+  }
 
   @include lg{
     padding-top: $space-5;
@@ -220,6 +261,52 @@
 // -------------------------------------------------------------
 // ANIMATION
 // -------------------------------------------------------------
+
+// ── Floating chart cards ───────────────────────────────────────────────────────
+// Subtle vertical drift — cards rise and settle at different rates so they
+// never move in unison, giving the layout an organic, layered feel.
+// Each stop uses a slightly irregular Y so the motion isn't a simple sine.
+@keyframes chart-float {
+  0%   { transform: translateY(0px);   }
+  25%  { transform: translateY(-4px);  }
+  55%  { transform: translateY(-7px);  }
+  80%  { transform: translateY(-3px);  }
+  100% { transform: translateY(0px);   }
+}
+
+// Usage: @include float-animation(6.5s, 1.2s);
+// Pass a unique $duration + $delay per card so they drift out of phase.
+//
+// The section root controls --float-play via an IntersectionObserver:
+//   running  → section is in (or near) the viewport
+//   paused   → section is off-screen; zero GPU/compositor work
+//
+// Default is `paused` so animations are dormant before hydration and
+// whenever the section is scrolled away.
+@mixin float-animation($duration: 6s, $delay: 0s) {
+  animation: chart-float $duration $delay ease-in-out infinite;
+  animation-play-state: var(--float-play, paused);
+
+  // will-change is toggled via a data attribute on the section root.
+  // Using a data attribute (not a CSS-modules class) avoids hash-scoping —
+  // the attribute selector is global and reaches across module boundaries.
+  //
+  // When [data-float-active] is present on an ancestor:
+  //   → will-change: transform promotes each card to its own GPU compositor
+  //     layer — also the prerequisite for Chrome's GPU backdrop-filter path.
+  // When absent (off-screen):
+  //   → no GPU layers reserved for idle cards.
+  [data-float-active] & {
+    will-change: transform;
+  }
+
+  // Respect the OS-level "reduce motion" preference.
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    will-change: auto;
+  }
+}
+
 @mixin fade-in-animation($duration: 2s) {
   animation: fade-in $duration ease-in-out;
 

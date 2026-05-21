@@ -3,7 +3,7 @@
 import styles from './HeroModel.module.scss';
 import clsx from "clsx";
 import Image from "next/image";
-import {useSvgPath} from "@/app/components/sections/FacialAnalysisSection/hooks/useSvgPath";
+import {useSvgPath} from "./hooks/useSvgPath";
 import { cardBeforeAfter } from './HeroModel.data';
 
 const HeroModel = () => {

@@ -27,7 +27,9 @@
       "@/sections": ["./app/components/sections/index.tsx"],
       "@/ui": ["./app/components/ui/index.tsx"],
       "@/shared/hooks/*": ["./app/shared/hooks/*"],
-      "@/shared/styling/*": ["./app/shared/styling/*"]
+      "@/shared/styling/*": ["./app/shared/styling/*"],
+      "@/shared/const":  ["./app/shared/const/index.ts"],
+      "@/shared/const/*": ["./app/shared/const/*"]
     }
   },
   "include": [

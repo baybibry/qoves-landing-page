@@ -1,8 +1,7 @@
 "use client"
 
 import styles from './ConsiderationSection.module.scss';
-import {InfoCard, SectionContent, SectionLabel, SectionTitle} from "@/ui";
-import LinearLayout from "@/app/components/ui/LinearLayout/LinearLayout";
+import {InfoCard, LinearLayout, SectionContent, SectionLabel, SectionTitle} from "@/ui";
 
 const ConsiderationSection = () => {
 

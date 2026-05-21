@@ -8,10 +8,28 @@
   @include flex-center;
   justify-content: flex-start;
   flex-direction: column;
-  padding: $space-4  $space-4 0;
+  padding: $space-16 $space-4 0;
+  gap: $space-10;
+  z-index: 10;
+
+  @include md {
+    padding: $space-10 $space-8 0;
+    gap: $space-10;
+  }
+
+  @include lg {
+    padding: $space-4 $space-4 0;
+  }
 
   @include lg {
     @include section-grid-lines-vertical;
+  }
+
+  @include xl {
+    &:before{
+      content: '';
+      border: unset;
+    }
   }
 
   &::after{
@@ -25,15 +43,17 @@
     background-position: center center;
     background-repeat: no-repeat;
     opacity: 0.5;
-    //filter: blur(100px);
-    filter: blur(60px);
+    filter: blur(100px);
     z-index: 1;
 
-    @include sm{
+    @include md{
+      transform: scale(1.1);
+      filter: blur(60px);
       background-size: cover;
     }
 
     @include lg{
+      transform: unset;
       background-size: contain;
     }
   }
@@ -42,17 +62,49 @@
     z-index: 2;
   }
 
-  >.sectionInfo{
+  > .sectionInfo {
     @include section-info-container;
+    // The mixin applies padding-top:$space-20 (80px) on mobile — far too much.
+    // Override to a compact value that matches the Figma header proportions.
+    padding-top: $space-3;
+
+    @include md {
+      padding-top: $space-5;
+    }
+
+    @include lg {
+      padding-top: $space-5;  // keep mixin's desktop value
+    }
   }
 
-  > .graphContainer{
-    width: 100%;
-    @include flex-between;
+  > .graphContainer {
     position: relative;
     flex-grow: 1;
+    width: 100%;
     overflow: hidden;
+    height: 100%;
 
+    // Always two columns flanking the centred person model.
+    // `space-between` pushes both columns to the edges; the person model
+    // sits in the gap via `position: absolute; left: 50%`.
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0 0 $space-2;       // root already provides side padding on mobile
+
+    @include md {
+      //@include flex-center;
+      justify-content: space-between;
+      padding: 0 0 $space-3;
+    }
+
+    @include lg {
+      padding: $space-24 $space-12;
+    }
+
+
+    // ── Edge fades (desktop only) ─────────────────────────────────────────
     &::before,
     &::after {
       display: none;
@@ -65,19 +117,14 @@
         height: 100%;
         z-index: 3;
         top: 0;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        pointer-events: none;
       }
     }
 
     &::before {
       @include lg {
         left: 0;
-        background: linear-gradient(
-                        to right,
-                        rgba($color-accent-blue, 1) 0%,
-                        rgba($color-accent-blue, 0) 100%
-        );
+        background: linear-gradient(to right, rgba($color-accent-blue, 1) 0%, rgba($color-accent-blue, 0) 100%);
         -webkit-mask: linear-gradient(to right, black 0%, transparent 100%);
         mask: linear-gradient(to right, black 0%, transparent 100%);
       }
@@ -86,71 +133,121 @@
     &::after {
       @include lg {
         right: 0;
-        background: linear-gradient(
-                        to left,
-                        rgba($color-accent-blue, 1) 0%,
-                        rgba($color-accent-blue, 0) 100%
-        );
+        background: linear-gradient(to left, rgba($color-accent-blue, 1) 0%, rgba($color-accent-blue, 0) 100%);
         -webkit-mask: linear-gradient(to left, black 0%, transparent 100%);
         mask: linear-gradient(to left, black 0%, transparent 100%);
       }
     }
 
-    >.graphGridWrapper{
+    // ── Card columns ──────────────────────────────────────────────────────
+    > .graphGridWrapper {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: 1fr;
+      // Figma mobile spec: grids occupy 50 % of the container height,
+      // leaving the lower half for the person model to show through.
+      height: 50%;
 
-      &.gridLayout1{
-        grid-template-areas:"area-1"
-                            "area-2"
-                            "area-3";
+      // Mobile: each column is ~42 % of the container → ~16 % left for the
+      // person's face to show through in the centre gap.
+      width: 42%;
+      gap: $space-2;
+
+      @include short-mobile{
+        height: 100% !important;
       }
 
-      &.gridLayout2{
-        grid-template-areas:"area-4"
-                            "area-5"
-                            "area-6";
-      }
+      &.gridLayout1 {
+        // Mobile: 3 equal rows — no spanning, every card gets the same height.
+        // Avoids extreme portrait cells that waste space or clip labels.
 
-      .graphImage{
-        width: 250px;
-        height: 150px;
-        position: relative;
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-areas:
+          "area-1"
+          "area-2"
+          "area-3"
+          "area-3";
 
-        > img{
-          object-fit: contain;
+        @include lg {
+          // Desktop: ScatterPlot spans the full left column (2 rows).
+          grid-template-rows: repeat(2, 1fr);
         }
       }
 
+      &.gridLayout2 {
+        // Mobile: 3 equal rows — VerticalScaleChart shares equal height.
+
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-areas:
+          "area-4"
+          "area-4"
+          "area-5"
+          "area-6";
+
+        @include lg {
+          // Desktop: VerticalScaleChart spans the full left column (2 rows).
+          grid-template-rows: repeat(2, 1fr);
+        }
+      }
+
+      // Tablet: same two-column structure, wider cards
+      @include md {
+        width: 43%;
+        height: 75%;
+        gap: $space-3;
+      }
+
+      // Desktop: promote each column to a 2×2 sub-grid
       @include lg {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
+        gap: $space-4;
+        align-items: stretch;
+        height: 60%;
+        width: 100%;
+        max-width: 1000px;
 
-        &.gridLayout1{
-          grid-template-areas:"area-3 area-1"
-                              "area-3 area-2";
+        &.gridLayout1 {
+          grid-template-areas:
+            "area-3 area-1"
+            "area-3 area-2";
         }
 
-        &.gridLayout2{
-          grid-template-areas:"area-4 area-6"
-                              "area-4 area-5 "
+        &.gridLayout2 {
+          grid-template-areas:
+            "area-4 area-6"
+            "area-4 area-5";
         }
+      }
 
-        .graphImage{
-          width: 300px;
-          height: 200px;
-        }
+      // Every chart card — treated like object-fit:cover images.
+      // `position: relative` makes each cell a containing block so inner
+      // elements can use position:absolute to fill it completely.
+      // `min-width/height: 0` are critical: CSS grid items default to
+      // min-width:auto, which prevents shrinking below content size.
+      // `overflow: hidden` clips any content that overflows the cell,
+      // exactly how object-fit:cover clips an overflowing image.
+      > * {
+        position: relative; // containing block for absolute inner content
+        width: 100%;
+        height: 100%;
+        min-width: 0;    // allow grid item to shrink to track width
+        min-height: 0;   // allow grid item to shrink to track height
+        overflow: hidden; // clip overflow — the "cover" crop
+        // Each card gets its own stacking context so Chrome composites
+        // backdrop-filter blurs independently (GPU path, not software).
+        isolation: isolate;
       }
     }
 
-    >.personModel{
+    // ── Person model ──────────────────────────────────────────────────────
+    > .personModel {
       position: absolute;
       bottom: -5dvh;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
       height: 100%;
+      pointer-events: none;
 
       @include md {
         bottom: -20dvh;
@@ -161,28 +258,12 @@
         width: 100%;
         height: 100%;
 
-        @include lg{
+        @include lg {
           transform: scale(1.5);
         }
 
-        @include xl{
+        @include xl {
           transform: scale(2);
-        }
-
-        > img {
-          height: 100%;
-          width: auto;
-          object-fit: contain;
-          object-position: bottom;
-
-          @include md {
-            height: 100vw;
-            transform: scale(1.2);
-          }
-
-          @include lg {
-            transform: scale(1);
-          }
         }
       }
     }

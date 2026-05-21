@@ -40,9 +40,21 @@
       height: 100%;
       max-width: $content-max-width;
       margin: auto;
-      padding-bottom: $space-10;
+      padding: $space-5 $space-5 $space-10 $space-5;
       width: 100%;
       min-height: 50dvh;
+
+      // Force the content to be align with mobile
+      >.groupContent{
+        >:first-child{
+          display: block !important;
+          line-height: 1.25;
+        }
+
+        >:last-child{
+          text-align: center !important;
+        }
+      }
 
       @include lg{
         align-items: flex-start;

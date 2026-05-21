@@ -1,8 +1,5 @@
 import styles from './HeroSection.module.scss';
-import {SectionContent, SectionLabel, SectionTitle} from "@/ui";
-import LinearLayout from "@/app/components/ui/LinearLayout/LinearLayout";
-import HeroCard from "@/app/components/ui/HeroCards/HeroCards";
-import HeroModel from "@/app/components/ui/HeroModel/HeroModel";
+import {SectionContent,HeroCards, HeroModel, LinearLayout, SectionLabel, SectionTitle} from "@/ui";
 
 const HeroSection = () => {
     return (
@@ -33,7 +30,7 @@ const HeroSection = () => {
                     className={styles.cardsWrapper}
                     isHaveVerticalBorder
                 >
-                    <HeroCard/>
+                    <HeroCards/>
                 </LinearLayout>
             </div>
 

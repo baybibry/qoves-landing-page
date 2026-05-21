@@ -17,7 +17,6 @@
       border-left: 2px solid rgba($color-dirty-white, 0.5);
     }
 
-
     >.innerCardWrapper{
       border-radius: $radius-lg;
       border: 1px solid $color-accent-subtle;
@@ -73,7 +72,6 @@
           top: -10px;
           -webkit-backdrop-filter: blur(100px);
           border-radius: $radius-full;
-          backdrop-filter: blur(100px);
           filter: blur(20px);
         }
 
