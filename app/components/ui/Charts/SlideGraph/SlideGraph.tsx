@@ -8,8 +8,8 @@ import styles from "./SlideGraph.module.scss";
 const SliderGraph = ({
     label,
     value,
-    minLabel = "(0%)",
-    maxLabel = "(100%)",
+    minLabel = 0,
+    maxLabel = 100,
 }: SliderGraphProps) => {
     const { ref, hasBeenVisible } = useInView<HTMLDivElement>();
     const animated = useCountUp(value, undefined, hasBeenVisible);
@@ -28,7 +28,7 @@ const SliderGraph = ({
                     <div className={styles.trackLabels}>
                         <div className={styles.minLabel}>
                             <span>Rough</span>
-                            {minLabel}
+                            ({minLabel}%)
                         </div>
                         <div className={styles.youLabel} style={{ left: `${animated - 12}%` }}>
                             <span>{animated}%</span>
@@ -36,7 +36,7 @@ const SliderGraph = ({
                         </div>
                         <div className={styles.maxLabel}>
                             <span>Smooth</span>
-                            {maxLabel}
+                            ({maxLabel}%)
                         </div>
                     </div>
 

@@ -23,7 +23,7 @@ const ScatterPlot = () => {
                     <div className={`${styles.axisLabel} ${styles.labelLeft}`}>FEMININE</div>
                     <div className={`${styles.axisLabel} ${styles.labelRight}`}>MASCULINE</div>
 
-                    <ResponsiveContainer width="100%" height="100%">
+                    <ResponsiveContainer width="100%" height="100%" debounce={50}>
                         <ScatterChart margin={MARGIN}>
                             <XAxis type="number" dataKey="x" domain={[...DOMAIN]} tick={false} axisLine={false} tickLine={false} height={0} />
                             <YAxis type="number" dataKey="y" domain={[...DOMAIN]} tick={false} axisLine={false} tickLine={false} width={0} />

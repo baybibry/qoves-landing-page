@@ -3,11 +3,12 @@
 import styles from './FacialAnalysisSection.module.scss';
 import Image from "next/image";
 import clsx from "clsx";
-import {
-    SectionLabel, SectionTitle, SectionContent,
-    CurveGraph, SlideGraph, ScatterPlot,
-    BarChart, SegmentChart, VerticalScaleChart,
-} from "@/ui";
+import dynamic from "next/dynamic";
+import { SectionLabel, SectionTitle, SectionContent, SlideGraph, SegmentChart, VerticalScaleChart } from "@/ui";
+
+const CurveGraph  = dynamic(() => import("@/app/components/ui/Charts/CurveGraph/CurveGraph"),   { ssr: false });
+const ScatterPlot = dynamic(() => import("@/app/components/ui/Charts/ScatterPlot/ScatterPlot"), { ssr: false });
+const BarChart    = dynamic(() => import("@/app/components/ui/Charts/BarChart/BarChart"),        { ssr: false });
 import { useIsVisible } from "@/shared/hooks";
 
 const FacialAnalysisSection = () => {

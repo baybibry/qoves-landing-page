@@ -16,7 +16,7 @@ const BarChart = () => {
 
     return (
         <div className={styles.root} ref={ref}>
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" debounce={50}>
                 <RechartsBarChart
                     data={barData}
                     layout="vertical"

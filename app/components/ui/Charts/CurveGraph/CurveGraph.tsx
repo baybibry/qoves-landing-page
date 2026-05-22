@@ -21,7 +21,7 @@ const CurveGraph = ({
     return (
         <div className={styles.root}>
             <div className={styles.chartWrapper}>
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%" debounce={50}>
                     <AreaChart data={data} margin={CURVE_CHART_MARGIN}>
                         <CartesianGrid opacity={0.5} />
                         <Area type="monotone" dataKey="curve" stroke="#c8c5bf" fillOpacity={0} isAnimationActive={false} />
