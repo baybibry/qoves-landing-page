@@ -42,9 +42,9 @@
   -webkit-backdrop-filter: blur($blur);
   background: $bg;
   border: $border-width solid $border-color;
-  // Creates an independent stacking context so each blurred panel is
-  // composited in isolation — critical for Chrome's GPU blur path.
   isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 
@@ -58,6 +58,9 @@
   border-radius: $radius-lg;
   position: relative;
   container-type: size;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 // Caption pill — frosted text block at the bottom of chart cards.

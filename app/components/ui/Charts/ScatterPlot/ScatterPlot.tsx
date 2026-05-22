@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import {
     ScatterChart, Scatter, XAxis, YAxis,
     ReferenceLine, ResponsiveContainer,
@@ -40,4 +40,4 @@ const ScatterPlot = () => {
     );
 };
 
-export default ScatterPlot;
+export default memo(ScatterPlot);

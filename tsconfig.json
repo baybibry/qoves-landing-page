@@ -24,12 +24,14 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/sections": ["./app/components/sections/index.tsx"],
-      "@/ui": ["./app/components/ui/index.tsx"],
-      "@/shared/hooks": ["./app/shared/hooks/index.ts"],
+      "@/sections":         ["./app/components/sections/index.tsx"],
+      "@/ui":               ["./app/components/ui/index.tsx"],
+      "@/shared/hooks":     ["./app/shared/hooks/index.ts"],
+      "@/shared/hooks/*":   ["./app/shared/hooks/*"],
+      "@/shared/const":     ["./app/shared/const/index.ts"],
+      "@/shared/const/*":   ["./app/shared/const/*"],
       "@/shared/styling/*": ["./app/shared/styling/*"],
-      "@/shared/const":  ["./app/shared/const/index.ts"],
+      "@/*":                ["./*"]
     }
   },
   "include": [

@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import {
     AreaChart, Area, XAxis, YAxis,
     ResponsiveContainer, ReferenceDot, CartesianGrid,
@@ -44,4 +45,4 @@ const CurveGraph = ({
     );
 };
 
-export default CurveGraph;
+export default memo(CurveGraph);

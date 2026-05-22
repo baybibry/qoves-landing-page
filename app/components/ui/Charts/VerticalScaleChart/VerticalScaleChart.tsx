@@ -1,20 +1,23 @@
 "use client";
 
+import { memo } from "react";
 import styles from "./VerticalScaleChart.module.scss";
 import type { VerticalScaleChartProps } from "./VerticalScaleChart.types";
 import { colorStops } from "./data/VerticalScaleChart.data";
 import { useAnimatedPosition } from "./hooks/VerticalScaleChart";
 import { VERTICAL_SCALE_TARGET } from "@/shared/const";
+import { useInView } from "@/shared/hooks";
 
 const VerticalScaleChart = ({
     userLabel   = "YOU",
     markerLabel = "DARK BROWN",
     caption     = "Your eyes have a medium melanin concentration.",
 }: VerticalScaleChartProps) => {
-    const position = useAnimatedPosition(VERTICAL_SCALE_TARGET);
+    const { ref, hasBeenVisible } = useInView<HTMLDivElement>();
+    const position = useAnimatedPosition(VERTICAL_SCALE_TARGET, hasBeenVisible);
 
     return (
-        <div className={styles.root}>
+        <div ref={ref} className={styles.root}>
             <div className={styles.chartWrapper}>
                 <div className={styles.barWrapper}>
                     <div className={styles.bar} />
@@ -41,4 +44,4 @@ const VerticalScaleChart = ({
     );
 };
 
-export default VerticalScaleChart;
+export default memo(VerticalScaleChart);

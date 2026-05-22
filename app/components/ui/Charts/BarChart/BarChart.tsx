@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import {
     BarChart as RechartsBarChart, Bar, XAxis, YAxis,
     Cell, ResponsiveContainer, LabelList, ReferenceLine,
@@ -55,4 +56,4 @@ const BarChart = () => {
     );
 };
 
-export default BarChart;
+export default memo(BarChart);

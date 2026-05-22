@@ -1,7 +1,8 @@
 "use client";
 
+import { memo } from "react";
 import type { SliderGraphProps } from "./SlideGraph.types";
-import { useCountUp } from "@/shared/hooks";
+import { useCountUp, useInView } from "@/shared/hooks";
 import styles from "./SlideGraph.module.scss";
 
 const SliderGraph = ({
@@ -10,10 +11,11 @@ const SliderGraph = ({
     minLabel = "(0%)",
     maxLabel = "(100%)",
 }: SliderGraphProps) => {
-    const animated = useCountUp(value);
+    const { ref, hasBeenVisible } = useInView<HTMLDivElement>();
+    const animated = useCountUp(value, undefined, hasBeenVisible);
 
     return (
-        <div className={styles.root}>
+        <div ref={ref} className={styles.root}>
             <div className={styles.labelWrapper}>
                 <span className={styles.label}>{label}</span>
                 <span className={styles.value}>{animated}%</span>
@@ -47,4 +49,4 @@ const SliderGraph = ({
     );
 };
 
-export default SliderGraph;
+export default memo(SliderGraph);

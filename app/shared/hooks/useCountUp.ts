@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import { COUNT_UP_DURATION } from "@/shared/const";
 
-export function useCountUp(target: number, duration = COUNT_UP_DURATION): number {
+export function useCountUp(target: number, duration = COUNT_UP_DURATION, started = true): number {
     const [current, setCurrent] = useState(0);
 
     useEffect(() => {
+        if (!started) return;
+
         let startTime: number | null = null;
         let rafId: number;
 
@@ -23,7 +25,7 @@ export function useCountUp(target: number, duration = COUNT_UP_DURATION): number
 
         rafId = requestAnimationFrame(step);
         return () => cancelAnimationFrame(rafId);
-    }, [target, duration]);
+    }, [target, duration, started]);
 
     return current;
 }

@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 
-const TAIL_LENGTH = 100;
+const TAIL_LENGTH = 35;
 
 export const useSvgPath = () => {
     const pathRef = useRef<SVGPathElement | null>(null);
@@ -103,7 +103,7 @@ export const useSvgPath = () => {
                 </filter>
                 </defs>
 
-            {/* tail rects */}
+            {/* tail rects — glow only on the leading 8; the rest fade to near-zero opacity */}
             {Array.from({ length: TAIL_LENGTH }).map((_, i) => (
                 <rect
                     key={i}
@@ -113,7 +113,7 @@ export const useSvgPath = () => {
                     rx="1"
                     fill="#869aa1"
                     opacity="0"
-                    filter="url(#glow)"
+                    filter={i < 8 ? "url(#glow)" : undefined}
                 />
             ))}
 
@@ -127,7 +127,7 @@ export const useSvgPath = () => {
                     rx="1"
                     fill="#869aa1"
                     opacity="0"
-                    filter="url(#glow)"
+                    filter={i < 8 ? "url(#glow)" : undefined}
                 />
             ))}
 

@@ -19,13 +19,16 @@
 
     >.innerCardWrapper{
       border-radius: $radius-lg;
-      border: 1px solid $color-accent-subtle;
+      border: 2px solid rgba($color-dirty-white, 0.75);
       height: 152px;
       width: 100%;
       @include flex-between;
       flex-direction: column;
       padding: $space-4;
       align-items: flex-start;
+      isolation: isolate;
+      transform: translateZ(0);
+      backface-visibility: hidden;
 
       >.badge{
         width: 24px;
@@ -73,6 +76,9 @@
           -webkit-backdrop-filter: blur(100px);
           border-radius: $radius-full;
           filter: blur(20px);
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          will-change: transform;
         }
 
         &::before{

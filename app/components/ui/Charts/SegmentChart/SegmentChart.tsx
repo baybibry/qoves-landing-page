@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./SegmentChart.module.scss";
 import { segmentData } from "./data/SegmentChart.data";
 
@@ -34,4 +35,4 @@ const SegmentChart = () => (
     </div>
 );
 
-export default SegmentChart;
+export default memo(SegmentChart);
